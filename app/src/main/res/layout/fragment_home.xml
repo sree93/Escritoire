@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    tools:context="com.sreemenon.escritoire.HomeFragment">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:text="Quote of the day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/frag_home_tv_header"
+                android:textAlignment="center"
+                android:textStyle="normal|bold"
+                android:textSize="18sp"
+                android:fontFamily="cursive" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/frag_home_tv_quote_text"
+                android:textSize="24sp"
+                android:layout_below="@+id/frag_home_tv_header"
+                android:layout_alignParentStart="true"
+                android:text="Loading..."
+                android:layout_marginTop="24dp"
+                android:fontFamily="cursive"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/frag_home_tv_quote_author"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/frag_home_tv_quote_text"
+                android:layout_alignParentStart="true"
+                android:textAlignment="viewEnd"
+                android:textStyle="normal|italic"
+                android:textSize="14sp"
+                android:fontFamily="cursive" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
