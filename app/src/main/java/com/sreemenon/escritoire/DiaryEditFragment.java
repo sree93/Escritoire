@@ -25,7 +25,7 @@ import java.util.Locale;
  */
 public class DiaryEditFragment extends Fragment {
 
-    //private OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener mListener;
 
     private EditText etTitle;
     private EditText etDate;
@@ -76,6 +76,8 @@ public class DiaryEditFragment extends Fragment {
 
         initEleements(view);
 
+        mListener.setFabIcon(1);
+
         return view;
     }
 
@@ -115,17 +117,17 @@ public class DiaryEditFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        //mListener = null;
+        mListener = null;
     }
 }

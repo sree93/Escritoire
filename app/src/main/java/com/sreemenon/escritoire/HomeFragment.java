@@ -26,7 +26,8 @@ import org.json.JSONException;
  */
 public class HomeFragment extends Fragment {
 
-    //private OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener mListener;
+
     private TextView tvQuoteText;
     private TextView tvQuoteAuthor;
 
@@ -63,6 +64,8 @@ public class HomeFragment extends Fragment {
         QuoteTask quoteTask = new QuoteTask();
         quoteTask.execute();
 
+        mListener.setFabIcon(R.drawable.ic_refresh_black_24px);
+
         return view;
     }
 
@@ -75,18 +78,19 @@ public class HomeFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        //mListener = null;
+        mListener = null;
     }
 
     private class QuoteTask extends AsyncTask<Void, Void, Void>{

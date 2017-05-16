@@ -15,7 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener {
+
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,5 +128,16 @@ public class MainActivity extends AppCompatActivity
     private void replaceFragment(Fragment fragment){
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_main_fl_container, fragment).commit();
+    }
+
+    @Override
+    public void setFabIcon(int drawable) {
+        fab.setVisibility(View.VISIBLE);
+        fab.setImageResource(drawable);
+    }
+
+    @Override
+    public void hideFabIcon() {
+        fab.setVisibility(View.GONE);
     }
 }
