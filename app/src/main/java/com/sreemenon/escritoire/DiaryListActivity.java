@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import java.util.Locale;
 
-public class DiaryEditActivity extends AppCompatActivity {
+public class DiaryListActivity extends AppCompatActivity {
 
     private EditText etTitle;
     private EditText etDate;
@@ -52,7 +52,7 @@ public class DiaryEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                new DatePickerDialog(DiaryEditActivity.this, date, myCalendar
+                new DatePickerDialog(DiaryListActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
