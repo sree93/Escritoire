@@ -9,10 +9,13 @@ import java.util.Date;
  */
 
 public class DiaryModel extends SugarRecord {
-    String title;
-    Date date;
-    String entry;
-    Date createdAt;
+
+    public String title;
+    public Date date;
+    public String entry;
+    public Date createdAt;
+
+    public DiaryModel(){}
 
     public DiaryModel(String title, Date date, String entry, Date createdAt) {
         this.title = title;

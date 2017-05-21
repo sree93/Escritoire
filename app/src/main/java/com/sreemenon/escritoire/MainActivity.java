@@ -18,20 +18,20 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener {
 
     FloatingActionButton fab;
+    OnActvityInteractionListener fragmentInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                fragmentInstance.fabAction();
             }
         });
 
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
                 replaceFragment(DNAFragment.newInstance());
                 break;
             case R.id.nav_diary:
-                replaceFragment(DiaryEditFragment.newInstance());
+                replaceFragment(DiaryListFragment.newInstance());
                 break;
         }
 
@@ -125,7 +125,8 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void replaceFragment(Fragment fragment){
+    private void replaceFragment(MyFragment fragment){
+        fragmentInstance = fragment;
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_main_fl_container, fragment).commit();
     }

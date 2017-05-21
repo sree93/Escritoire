@@ -24,16 +24,14 @@ import org.json.JSONException;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
-
-    private OnFragmentInteractionListener mListener;
+public class HomeFragment extends MyFragment {
 
     private TextView tvQuoteText;
     private TextView tvQuoteAuthor;
 
 
     public HomeFragment() {
-        // Required empty public constructor
+        super(R.layout.fragment_home, R.drawable.ic_refresh_black_24px);
     }
 
     /**
@@ -48,49 +46,17 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+    void initUIElements(View view) {
         tvQuoteAuthor = (TextView) view.findViewById(R.id.frag_home_tv_quote_author);
         tvQuoteText = (TextView) view.findViewById(R.id.frag_home_tv_quote_text);
 
         QuoteTask quoteTask = new QuoteTask();
         quoteTask.execute();
-
-        mListener.setFabIcon(R.drawable.ic_refresh_black_24px);
-
-        return view;
-    }
-
-//    public void onButtonPressed(Uri uri) {
-//        if (mListener != null) {
-//            mListener.onFragmentInteraction(uri);
-//        }
-//    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+    public void fabAction() {
+        //@TODO: add home fab action
     }
 
     private class QuoteTask extends AsyncTask<Void, Void, Void>{
@@ -100,7 +66,11 @@ public class HomeFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
             HttpHandler handler = new HttpHandler();
-            jsonResponse = handler.makeServiceCallJsonArray(HomeFragment.this.getString(R.string.quote_api_url));
+            try {
+                jsonResponse = handler.makeServiceCallJsonArray(HomeFragment.this.getString(R.string.quote_api_url));
+            }catch (Exception exc){
+                exc.printStackTrace();
+            }
             return null;
         }
 
@@ -109,7 +79,7 @@ public class HomeFragment extends Fragment {
             try {
                 tvQuoteText.setText(Html.fromHtml(jsonResponse.getJSONObject(0).getString("content").replace("\n", "").trim()));
                 tvQuoteAuthor.setText(Html.fromHtml(jsonResponse.getJSONObject(0).getString("title").replace("\n", "").trim()));
-            } catch (JSONException e) {
+            } catch (JSONException | NullPointerException e) {
                 e.printStackTrace();
             }
 

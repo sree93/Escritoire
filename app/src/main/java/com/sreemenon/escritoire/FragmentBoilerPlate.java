@@ -18,7 +18,7 @@ import android.view.ViewGroup;
  */
 public class FragmentBoilerPlate extends Fragment {
 
-    //private OnFragmentInteractionListener mListener;
+    //private OnFragmentInteractionListener mainActivity;
 
     public FragmentBoilerPlate() {
         // Required empty public constructor
@@ -48,8 +48,8 @@ public class FragmentBoilerPlate extends Fragment {
     }
 
 //    public void onButtonPressed(Uri uri) {
-//        if (mListener != null) {
-//            mListener.onFragmentInteraction(uri);
+//        if (mainActivity != null) {
+//            mainActivity.onFragmentInteraction(uri);
 //        }
 //    }
 
@@ -57,7 +57,7 @@ public class FragmentBoilerPlate extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 //        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
+//            mainActivity = (OnFragmentInteractionListener) context;
 //        } else {
 //            throw new RuntimeException(context.toString()
 //                    + " must implement OnFragmentInteractionListener");
@@ -67,6 +67,6 @@ public class FragmentBoilerPlate extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        //mListener = null;
+        //mainActivity = null;
     }
 }
