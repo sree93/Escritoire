@@ -3,9 +3,12 @@ package com.sreemenon.escritoire;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.sreemenon.protean.ProteanRecyclerView;
 
 
 /**
@@ -17,6 +20,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class DNAFragment extends MyFragment {
+
+    private ProteanRecyclerView rv;
 
     //private OnFragmentInteractionListener mainActivity;
 
@@ -42,6 +47,7 @@ public class DNAFragment extends MyFragment {
 
     @Override
     void initUIElements(View view) {
-
+        rv = (ProteanRecyclerView) view.findViewById(R.id.dna_rv);
+        rv.setRichText("<p>Hello this works!</p>\n<p>This works too!</p>");
     }
 }

@@ -133,7 +133,7 @@ public class DiaryListFragment extends MyFragment {
             DateFormat dayDateFormat = new SimpleDateFormat("dd");
             String dayOfMonth = dayDateFormat.format(entry.date);
 
-            ColorGenerator generator = ColorGenerator.MATERIAL;
+            ColorGenerator generator = ColorGenerator.MATERIAL; 
             int color = generator.getColor(dayOfMonth);
 
             TextDrawable avatar = TextDrawable.builder()
