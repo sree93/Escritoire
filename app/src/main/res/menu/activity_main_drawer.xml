@@ -7,12 +7,12 @@
             android:icon="@drawable/ic_menu_home"
             android:title="@string/main_drawer_item_title_home" />
         <item
-            android:id="@+id/nav_dna"
-            android:icon="@drawable/ic_menu_daterange"
-            android:title="@string/main_drawer_item_title_daily_news_analysis" />
+            android:id="@+id/nav_idea"
+            android:icon="@drawable/ic_lightbulb_outline_black_24dp"
+            android:title="@string/main_drawer_item_title_idea_galore" />
         <item
             android:id="@+id/nav_diary"
-            android:icon="@drawable/ic_menu_daterange"
+            android:icon="@drawable/ic_import_contacts_black_24dp"
             android:title="@string/main_drawer_item_title_diary" />
     </group>
 

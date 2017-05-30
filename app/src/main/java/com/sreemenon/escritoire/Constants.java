@@ -6,4 +6,5 @@ package com.sreemenon.escritoire;
 
 public class Constants {
     public static String BUNDLE_DIARY_EDIT_ACTIVITY_ENTRY_ID = "entryId";
+    public static String BUNDLE_IDEA_EDIT_ACTIVITY_ENTRY_ID = "entryId";
 }

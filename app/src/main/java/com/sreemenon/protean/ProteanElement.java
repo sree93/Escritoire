@@ -24,7 +24,7 @@ public class ProteanElement{
 
     private String leftoverText;
 
-    public static List<ProteanElement> GetProteanList(String richText){
+    public static List<ProteanElement> GetProteanListFromRichText(String richText){
         String remainingText = richText;
         List<ProteanElement> elementList = new ArrayList<>();
         while(!remainingText.trim().equals("")){
@@ -33,6 +33,16 @@ public class ProteanElement{
             remainingText = currentElement.getLeftoverText();
         }
         return elementList;
+    }
+
+    public static String GetRichTextFromProteanList(List<ProteanElement> elementList){
+        StringBuilder builder = new StringBuilder();
+
+        for( ProteanElement element : elementList){
+            builder.append(element.getRichText());
+        }
+
+        return builder.toString();
     }
 
     public ProteanElement(String richText) {

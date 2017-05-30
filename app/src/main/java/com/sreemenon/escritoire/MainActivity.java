@@ -2,7 +2,6 @@ package com.sreemenon.escritoire;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -112,8 +111,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_home:
                 replaceFragment(HomeFragment.newInstance());
                 break;
-            case R.id.nav_dna:
-                replaceFragment(DNAFragment.newInstance());
+            case R.id.nav_idea:
+                replaceFragment(IdeaListFragment.newInstance());
                 break;
             case R.id.nav_diary:
                 replaceFragment(DiaryListFragment.newInstance());
